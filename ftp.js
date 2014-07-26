@@ -16,7 +16,7 @@ var debug = require('debug')('get-uri:ftp');
 module.exports = get;
 
 /**
- * Returns a Readable stream from a "ftp:" URI.
+ * Returns a Readable stream from an "ftp:" URI.
  *
  * @api protected
  */
@@ -99,6 +99,7 @@ function get (parsed, opts, fn) {
     var entry;
     for (var i = 0; i < list.length; i++) {
       entry = list[i];
+      debug('file %d: %j', i, entry.name);
       if (entry.name == name) {
         break;
       }
